@@ -85,7 +85,7 @@ func NewBlock(json *gjson.Result, isTestnet bool) *Block {
 		tx := NewTransaction(&x, b.Hash, b.Height, b.Time, isTestnet)
 		txs = append(txs, tx)
 	}
-	b.tx = txs
+	b.Tx = txs
 	return b
 }
 
@@ -98,7 +98,7 @@ func (block *Block) GetBlockHashID() string {
 }
 
 func (block *Block) GetTransactions() []*Transaction {
-	return block.tx
+	return block.Tx
 }
 
 //状态

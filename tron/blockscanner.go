@@ -213,7 +213,7 @@ func (bs *TronBlockScanner) ScanBlockTask() {
 
 		} else {
 
-			err = bs.BatchExtractTransaction(block.Height, block.Hash, block.Time, block.tx)
+			err = bs.BatchExtractTransaction(block.Height, block.Hash, block.Time, block.Tx)
 			if err != nil {
 				//bs.wm.Log.Std.Info("block scanner can not extractRechargeRecords; unexpected error: %v", err)
 			}
@@ -266,7 +266,7 @@ func (bs *TronBlockScanner) ScanBlock(height uint64) error {
 func (bs *TronBlockScanner) scanBlock(block *Block) error {
 
 	bs.wm.Log.Std.Info("block scanner scanning height: %d ...", block.Height)
-	err := bs.BatchExtractTransaction(block.Height, block.Hash, block.Time, block.tx)
+	err := bs.BatchExtractTransaction(block.Height, block.Hash, block.Time, block.Tx)
 	if err != nil {
 		bs.wm.Log.Std.Info("block scanner can not extractRechargeRecords; unexpected error: %v", err)
 	}
@@ -324,7 +324,7 @@ func (bs *TronBlockScanner) RescanFailedRecord() {
 				continue
 			}
 			blocktime = block.Time
-			trxs = block.tx
+			trxs = block.Tx
 		}
 		err = bs.BatchExtractTransaction(height, hash, blocktime, trxs)
 		if err != nil {
