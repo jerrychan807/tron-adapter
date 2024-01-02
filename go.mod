@@ -1,4 +1,4 @@
-module github.com/blocktree/tron-adapter
+module github.com/jerrychan807/tron-adapter
 
 go 1.12
 
