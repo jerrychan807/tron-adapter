@@ -58,13 +58,13 @@ type Block struct {
 		 }
 	*/
 	Hash              string // 这里采用 BlockID
-	tx                []*Transaction
+	Tx                []*Transaction
 	Previousblockhash string
 	Height            uint64 `storm:"id"`
 	Version           uint64
 	Time              int64
 	Fork              bool
-	txHash            []string
+	TxHash            []string
 	// Merkleroot        string
 	//Confirmations     uint64
 }
